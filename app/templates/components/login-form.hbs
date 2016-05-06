@@ -1,0 +1,19 @@
+<form>
+  <div class="form-group">
+    <label for="e-mail">E-Mail Adresi</label>
+    {{input id='e-mail' placeholder='E-Mail Adresi' value=email}}
+  </div>
+
+  <div class="form-group">
+    <label for="password">Şifre</label>
+    {{input id='password' placeholder='Şifre' type='password' value=password}}
+  </div>
+
+  <button type="submit" class="btn btn-default">Giriş</button>
+</form>
+
+{{#if _error}}
+  <div class="alert alert-danger">
+    <strong>Giriş başarısız:</strong> {{_error.message}} ({{_error.code}})
+  </div>
+{{/if}}

@@ -1,0 +1,31 @@
+<form id="user-create-form">
+  <div class="form-group">
+    <label for="first-name">Adı</label>
+    {{input id='first-name' placeholder='Adı' value=newUser.first_name}}
+  </div>
+
+  <div class="form-group">
+    <label for="middle-name">Göbek Adı</label>
+    {{input id='middle-name' placeholder='Göbek Adı' value=newUser.middle_name}}
+  </div>
+
+  <div class="form-group">
+    <label for="last-name">Soyadı</label>
+    {{input id='last-name' placeholder='Soyadı' value=newUser.last_name}}
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-Mail Adresi</label>
+    {{input id='email' placeholder='E-Mail Adresi' value=newUser.email}}
+  </div>
+
+  {{!-- TODO add user group multi select box --}}
+
+  <button type="submit" class="btn btn-default">Tamam</button>
+</form>
+
+{{#if errorMessage}}
+  <div class="alert alert-danger">
+    <strong>İşlem başarısız:</strong> {{errorMessage}}
+  </div>
+{{/if}}

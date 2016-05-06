@@ -43,5 +43,21 @@ module.exports = function(environment) {
 
   }
 
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: '//eos-api.dev/token-auth/',
+    identificationField: 'email',
+    //passwordField: 'password',
+    tokenPropertyName: 'token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+    //headers: {},
+    refreshAccessTokens: true,
+    serverTokenRefreshEndpoint: '//eos-api.dev/token-refresh/',
+    //tokenExpireName: 'exp',
+    refreshLeeway: 300, // Refresh the token 5 minutes (300s) before it expires.
+    timeFactor: 1000 // example - set to "1000" to convert incoming seconds to milliseconds.
+    //routeAfterAuthentication: '/'
+  };
+
   return ENV;
 };
