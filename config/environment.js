@@ -16,8 +16,34 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
+
+  // Do NOT put slash at the end of the URIs.
+  ENV.host = "http://eos-api.dev";
+  ENV.authHost = ENV.host;
+
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token'
+  };
+
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: ENV.authHost + '/token-auth',
+    identificationField: 'email',
+    //passwordField: 'password',
+    tokenPropertyName: 'token',
+    authorizationPrefix: 'Bearer ',
+    authorizationHeaderName: 'Authorization',
+    //headers: {},
+    refreshAccessTokens: true,
+    serverTokenRefreshEndpoint: ENV.authHost + '/token-refresh',
+    //tokenExpireName: 'exp',
+    refreshLeeway: 300, // Refresh the token 5 minutes (300s) before it expires.
+    timeFactor: 1000 // example - set to "1000" to convert incoming seconds to milliseconds.
+    //routeAfterAuthentication: '/'
+  };
+
+  // Put other ENV configurations here, so they can be overridden depending on environment if needed
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -40,24 +66,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    // TODO Set ENV.host
+    // TODO Set authHost
   }
-
-  ENV['ember-simple-auth-token'] = {
-    serverTokenEndpoint: '//eos-api.dev/token-auth/',
-    identificationField: 'email',
-    //passwordField: 'password',
-    tokenPropertyName: 'token',
-    authorizationPrefix: 'Bearer ',
-    authorizationHeaderName: 'Authorization',
-    //headers: {},
-    refreshAccessTokens: true,
-    serverTokenRefreshEndpoint: '//eos-api.dev/token-refresh/',
-    //tokenExpireName: 'exp',
-    refreshLeeway: 300, // Refresh the token 5 minutes (300s) before it expires.
-    timeFactor: 1000 // example - set to "1000" to convert incoming seconds to milliseconds.
-    //routeAfterAuthentication: '/'
-  };
 
   return ENV;
 };
