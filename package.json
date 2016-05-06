@@ -1,7 +1,7 @@
 {
   "name": "eos",
-  "version": "0.0.0",
-  "description": "Small description for eos goes here",
+  "version": "0.1.0",
+  "description": "Ember.js powered kick-start front-end web application for Eos API",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,11 +12,18 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozanmuyes/eos.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": {
+    "name": "Ozan Müyesseroğlu",
+    "email": "ozanmuyes@gmail.com",
+    "url": "http://ozanmuyes.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -30,12 +37,15 @@
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
+    "ember-cli-sass": "5.3.1",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.4.2",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
+    "ember-simple-auth": "^1.0.1",
+    "ember-simple-auth-token": "^1.1.1",
     "loader.js": "^4.0.1"
   }
 }
